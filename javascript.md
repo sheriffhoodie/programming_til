@@ -46,7 +46,7 @@ If a wrong number of arguments is passed to a JS function, nothing will happen- 
 
 ### Difference Between event.currentTarget and event.target
 - CurrentTarget identifies the current target for the event, as the event traverses the DOM. It always refers to the element to which the event handler has been attached, as opposed to event.target which identifies the element on which the event occurred
-- Example: e.target keep an object that trigger 'click' event - "<li>". In it's turn, the e.currentTarget refers to the element to which handler was attached. It means that "e.currentTarget === <ul> === this"
+- Example: e.target keep an object that trigger 'click' event - (li). In it's turn, the e.currentTarget refers to the element to which handler was attached. It means that e.currentTarget === (ul) === this
 
 ### The JavaScript Event Loop
 The browser JS execution (event loop) consists of heap (memory), call stack of functions (FILO), WebAPI’s such as setTimeouts, AJAX calls, and the DOM and a callback queue, which executes callbacks AFTER the call stack is emptied. JS is ‘single-threaded’, which means it can only execute one thing at a time.
