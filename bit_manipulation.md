@@ -34,16 +34,18 @@ can also use these as a shorthand expression to slide masks into place at a part
 
 - NOT (~) operator - flips all the bits in a single number, which is equivalent to adding one to a number and then making it negative
 - bit mask - a variable that helps with bitwise operations by turning specific bits on or off or just collecting data from an integer about which bits are on or off
-ex. num  = 0b1100
+```python
+- num  = 0b1100
 	mask = 0b0100
 	desired = num & mask
 	if desired > 0:
  	 print "Bit was on”
-can also use masks to turn a bit on in a number using the | operator. This will turn a corresponding bit on if it is off and leave it on if it is already on
-a = 0b10111011
-mask = 0b100
-desired = a | mask (result = 0b10111111)
-can use XOR (^) operator to flip bits in a given binary number
-ex. a = 0b110
-mask = 0b111
-desired = a ^ mask = 0b001
+```
+- can also use masks to turn a bit on in a number using the | operator; this will turn a corresponding bit on if it is off and leave it on if it is already on
+  - a = 0b10111011
+  - mask = 0b100
+  - desired = a | mask (result = 0b10111111)
+- can use XOR (^) operator to flip bits in a given binary number
+  - ex. a = 0b110
+  - mask = 0b111
+  - desired = a ^ mask = 0b001
