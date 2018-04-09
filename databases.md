@@ -21,3 +21,6 @@ Disadvantages
 - Microsoft Azure — a cloud computing platform that supports any operating system, and lets you store, compute, and scale data in one place. A recent survey even put it ahead of Amazon Web Services and Google Cloud Storage for corporate data storage.
 - MariaDB — an enhanced, drop-in version of MySQL.
 - PostgreSQL — an enterprise-level, object-relational DBMS that uses procedural languages like Perl and Python, in addition to SQL-level code.
+
+Sources:
+https://www.upwork.com/hiring/data/sql-vs-nosql-databases-whats-the-difference/

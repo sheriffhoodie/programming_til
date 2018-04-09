@@ -15,6 +15,26 @@ Assortment of topics specific to web development.
 - POST method should be used to create a subordinate (child) of the resource identified  by the Request-URI
 - PUT requests can be sent multiple times without without changing the result (idempotent) while multiple POST requests will create a new subordinate each time (not idempotent)
 
+### What happens when you enter a URL into browser and hit 'Enter'?
+- Browser looks up IP address first in the browser cache, then in the OS cache, then in the Router cache, then in the DNS cache
+- then the ISP’s DNS server begins a recursive search from the root nameserver, through the .com top-level nameserver, to Facebook’s nameserver. Normally, the DNS server will have names of the .com nameservers in cache, and so a hit to the root nameserver will not be necessary.
+- A DNS, or domain name system, is a server with a database of IP addresses and their associated hostnames. When a user types a URL into their browser, a DNS server is what translates that URL into the IP address that indicates its location online. A DNS lookup, then, is the process of a finding a specific DNS record. You can think of it as your computer looking up a number in a phone book.
+- One worrying thing about DNS is that the entire domain like wikipedia.org or facebook.com seems to map to a single IP address. Fortunately, there are ways of mitigating the bottleneck:
+  - Round-robin DNS is a solution where the DNS lookup returns multiple IP addresses, rather than just one. For example, facebook.com actually maps to four IP addresses.
+  - Load-balancer is the piece of hardware that listens on a particular IP address and forwards the requests to other servers. Major sites will typically use expensive high-performance load balancers.
+  - Geographic DNS improves scalability by mapping a domain name to different IP addresses, depending on the client’s geographic location. This is great for hosting static content so that different servers don’t have to update shared state.
+- The browser sends an HTTP request to the website's server
+- The GET request names the URL to fetch: “http://facebook.com/”. The browser identifies itself (User-Agent header), and states what types of responses it will accept (Accept and Accept-Encoding headers). The Connection header asks the server to keep the TCP connection open for further requests.
+- The request also contains the cookies that the browser has for this domain. As you probably already know, cookies are key-value pairs that track the state of a web site in between different page requests. And so the cookies store the name of the logged-in user, a secret number that was assigned to the user by the server, some of user’s settings, etc. The cookies will be stored in a text file on the client, and sent to the server with every request.
+- The website’s server responds with a permanent redirect to preferred URL (usually for SEO reasons)
+- The browser sends another GET request to the redirected URL
+- The website’s server receives the request, processes it, and sends back an HTML response
+- The browser begins rendering the HTML document, even before it has received all of it
+- The browser sends requests for embedded objects such as stylesheets, images, and JS files. the browser will send a GET request to retrieve each of these files.
+- Static files, unlike dynamic files, can be cached. For example, Facebook uses a content delivery network (CDN) to distribute static content – images, style sheets, and JavaScript files. So, the files will be copied to many machines across the globe.
+- Static content often represents the bulk of the bandwidth of a site, and can be easily replicated across a CDN. Often, sites will use a third-party CDN provider, instead of operating a CDN themselves. For example, Facebook’s static files are hosted by Akamai, the largest CDN provider.
+- The browser continues to make AJAX requests in the background as needed
+
 ### CDN
 Using a Content Delivery Network (CDN) optimizes the delivery of static assets on your site. This allows us to offload all requests for these static assets off of your web dynos, which in turn will free those dynos to handle more requests for dynamic content.
 - Benefits:
@@ -47,4 +67,5 @@ Using a Content Delivery Network (CDN) optimizes the delivery of static assets o
 Sources:
 https://devcenter.heroku.com/articles/using-amazon-cloudfront-cdn,
 https://www.cloudflare.com/learning/cdn/what-is-a-cdn/,
-https://www.crazyegg.com/blog/speed-up-your-website/
+https://www.crazyegg.com/blog/speed-up-your-website/,
+http://igoro.com/archive/what-really-happens-when-you-navigate-to-a-url/comment-page-3/
