@@ -35,7 +35,7 @@ can also use these as a shorthand expression to slide masks into place at a part
 - NOT (~) operator - flips all the bits in a single number, which is equivalent to adding one to a number and then making it negative
 - bit mask - a variable that helps with bitwise operations by turning specific bits on or off or just collecting data from an integer about which bits are on or off
 ```python
-- num  = 0b1100
+  num  = 0b1100
 	mask = 0b0100
 	desired = num & mask
 	if desired > 0:
