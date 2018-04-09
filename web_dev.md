@@ -10,13 +10,13 @@ Assortment of topics specific to web development.
 - Footnote: "When you need it and not prior"
 
 ### Difference between PUT and POST HTTP Requests
-PUT method is used to create or overwrite a resource at a particular url that is known by the client.
-POST method is used to send user-generated data to the web server, ex. when a user comments on a forum or if they upload a profile picture. It can be used if you do not know the specific url of where your newly created resource should reside. POST sends data to a specific URI and expects the resource at that URI to handle the request. POST is used for annotation of existing resources, providing a block of data (such as the result of submitting a form) to a data-handling process, or extending a database through an append operation
-POST method should be used to create a subordinate (child) of the resource identified  by the Request-URI
-PUT requests can be sent multiple times without without changing the result (idempotent) while multiple POST requests will create a new subordinate each time (not idempotent)
+- PUT method is used to create or overwrite a resource at a particular url that is known by the client.
+- POST method is used to send user-generated data to the web server, ex. when a user comments on a forum or if they upload a profile picture. It can be used if you do not know the specific url of where your newly created resource should reside. POST sends data to a specific URI and expects the resource at that URI to handle the request. POST is used for annotation of existing resources, providing a block of data (such as the result of submitting a form) to a data-handling process, or extending a database through an append operation
+- POST method should be used to create a subordinate (child) of the resource identified  by the Request-URI
+- PUT requests can be sent multiple times without without changing the result (idempotent) while multiple POST requests will create a new subordinate each time (not idempotent)
 
 ### CDN
-- Using a Content Delivery Network (CDN) optimizes the delivery of static assets on your site. This allows us to offload all requests for these static assets off of your web dynos, which in turn will free those dynos to handle more requests for dynamic content.
+Using a Content Delivery Network (CDN) optimizes the delivery of static assets on your site. This allows us to offload all requests for these static assets off of your web dynos, which in turn will free those dynos to handle more requests for dynamic content.
 - Benefits:
   - Improving website load times - By distributing content closer to website visitors by using a nearby CDN server (among other optimizations), visitors experience faster page loading times. As visitors are more inclined to click away from a slow-loading site, a CDN can reduce bounce rates and increase the amount of time that people spend on the site. In other words, a faster a website means more visitors will stay and stick around longer.
   - Reducing bandwidth costs - Bandwidth consumption costs for website hosting is a primary expense for websites. Through caching and other optimizations, CDNs are able to reduce the amount of data an origin server must provide, thus reducing hosting costs for website owners.
@@ -45,6 +45,6 @@ PUT requests can be sent multiple times without without changing the result (ide
 - monitor event listeners to weed out any zombies
 
 Sources:
-https://devcenter.heroku.com/articles/using-amazon-cloudfront-cdn
-https://www.cloudflare.com/learning/cdn/what-is-a-cdn/
+https://devcenter.heroku.com/articles/using-amazon-cloudfront-cdn,
+https://www.cloudflare.com/learning/cdn/what-is-a-cdn/,
 https://www.crazyegg.com/blog/speed-up-your-website/

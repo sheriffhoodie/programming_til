@@ -3,7 +3,7 @@ A collection of various topics related to JavaScript.
 ## Functions (Built-in)
 
 ### setTimeout
-- setTimeout is asynchronous, in that it queues the function reference it receives to run once the current call stack has finished executing. It doesn’t however, execute concurrently, or on a separate thread (due to JavaScript’s single-threaded nature). In simple terms, it defers the execution of its code until after the rest of the call stack is completed. The amount of time provided to a setTimeout, e.g. 1000ms, is only the minimum amount of time the function will wait to execute, not the exact amount.
+setTimeout is asynchronous, in that it queues the function reference it receives to run once the current call stack has finished executing. It doesn’t however, execute concurrently, or on a separate thread (due to JavaScript’s single-threaded nature). In simple terms, it defers the execution of its code until after the rest of the call stack is completed. The amount of time provided to a setTimeout, e.g. 1000ms, is only the minimum amount of time the function will wait to execute, not the exact amount.
 ```javascript
 console.log(1);
 setTimeout(function(){
@@ -36,7 +36,7 @@ console.log(3);
   - integrating with 3rd party DOM libraries
 
 ### Arguments in JS Functions
-- If a wrong number of arguments is passed to a JS function, nothing will happen- meaning you won't get an error or a warning as passing the parameters in JS is optional. All the parameters that weren't "supplied" will have the undefined value.
+If a wrong number of arguments is passed to a JS function, nothing will happen- meaning you won't get an error or a warning as passing the parameters in JS is optional. All the parameters that weren't "supplied" will have the undefined value.
 
 ### NaN in JavaScript:
 - a property of the global object
@@ -49,7 +49,7 @@ console.log(3);
 - Example: e.target keep an object that trigger 'click' event - <li>. In it's turn, the e.currentTarget refers to the element to which handler was attached. It's mean that e.currentTarget === <ul> === this
 
 ### The JavaScript Event Loop
-- The browser JS execution (event loop) consists of heap (memory), call stack of functions (FILO), WebAPI’s such as setTimeouts, AJAX calls, and the DOM and a callback queue, which executes callbacks AFTER the call stack is emptied. JS is ‘single-threaded’, which means it can only execute one thing at a time.
+The browser JS execution (event loop) consists of heap (memory), call stack of functions (FILO), WebAPI’s such as setTimeouts, AJAX calls, and the DOM and a callback queue, which executes callbacks AFTER the call stack is emptied. JS is ‘single-threaded’, which means it can only execute one thing at a time.
 
 ### JS Prototypal Inheritance
 - JS has prototypal inheritance for its objects instead of class-based inheritance languages like C#, Java, or Ruby. When creating a new object (class), can define properties and methods in the parent class that every child object instance will also have in their definition. To create smaller child objects, can define methods on the parent as {objectName}.prototype.{methodName} outside of the parent object definition. Child objects will not have this method defined inside them, instead, when the code is run, it will search up the inheritance chain (after it check’s the child’s own prototype) and look for the method in an ancestor’s definition and then apply it to the child.
@@ -91,12 +91,12 @@ console.log(obj) // {a: 1, b: 2, c: 3, x: 4, y: 5, z: 6}
 ```
 
 ### Observables
-- The Observable type can be used to model push-based data sources such as DOM events, timer intervals, and sockets. Using the Observable constructor, we can create a function which returns an observable stream of events for an arbitrary DOM element and event type. The Observable type represents one of the fundamental protocols for processing asynchronous streams of data. It is particularly effective at modeling streams of data which originate from the environment and are pushed into the application, such as user interface events. By offering Observable as a component of the ECMAScript standard library, we allow platforms and applications to share a common push-based stream protocol. , the API standard for an observable includes a method to remove or unregister the events / stream from the underlying code. This means you now have a common way to clean up your event handlers, no matter where the events are coming from. No more memory leaks due to mismatched API design or forgetting to unregister your handlers (unless you don’t implement the method call in your observable, of course). This can be used with the built-in unsubscribe() method.
+The Observable type can be used to model push-based data sources such as DOM events, timer intervals, and sockets. Using the Observable constructor, we can create a function which returns an observable stream of events for an arbitrary DOM element and event type. The Observable type represents one of the fundamental protocols for processing asynchronous streams of data. It is particularly effective at modeling streams of data which originate from the environment and are pushed into the application, such as user interface events. By offering Observable as a component of the ECMAScript standard library, we allow platforms and applications to share a common push-based stream protocol. , the API standard for an observable includes a method to remove or unregister the events / stream from the underlying code. This means you now have a common way to clean up your event handlers, no matter where the events are coming from. No more memory leaks due to mismatched API design or forgetting to unregister your handlers (unless you don’t implement the method call in your observable, of course). This can be used with the built-in unsubscribe() method.
 - In addition, observables are:
   - Compositional: Observables can be composed with higher-order combinators.
 	- Lazy: Observables do not start emitting data until an observer has subscribed.
 
 ### Await / Async
-  By adding “async” to the outer function definition, you can now use the “await” keyword to call your other async functions. The functions that are called with “await” must also be marked as “async”, and there’s one more key to making them work: promises. By returning a promise from an async function, it can now be consumed with the “await” keyword, as shown above. The end result is code that is far easier to read and understand, easier to maintain, and easier to deal with as a developer. The code also now has the appearance of being synchronous. Await / Async also has the try { } and catch { } blocks to make error handling more simplified.
+By adding “async” to the outer function definition, you can now use the “await” keyword to call your other async functions. The functions that are called with “await” must also be marked as “async”, and there’s one more key to making them work: promises. By returning a promise from an async function, it can now be consumed with the “await” keyword, as shown above. The end result is code that is far easier to read and understand, easier to maintain, and easier to deal with as a developer. The code also now has the appearance of being synchronous. Await / Async also has the try { } and catch { } blocks to make error handling more simplified.
 
 Sources: https://derickbailey.com/2017/06/06/3-features-of-es7-and-beyond-that-you-should-be-using-now/
