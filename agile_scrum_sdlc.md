@@ -23,4 +23,11 @@ What's so special about scrum?
   - Sprint retrospective: A review of what did and didn't go well with actions to make the next sprint better.
 - During a sprint, visual artifacts like task boards and burndown charts, visible to the team and spectators alike, are powerful motivators. They drive a spirit of "we're doing this!" Having the opportunity to show off new work at the sprint demo is equally motivating, and the consistent, incremental feedback the team gets from stakeholders at each demo creates a powerful way to develop products.
 
+### SDLC - Software Development Life Cycle:
+- a process that produces software with the highest quality and lowest cost in the shortest time. SDLC includes a detailed plan for how to develop, alter, maintain, and replace a software system
+SDLC involves several distinct stages, including planning, design, building, testing, and deployment. Popular SDLC models include the waterfall model, spiral model, and Agile model
+SDLC works by lowering the cost of software development while simultaneously improving quality and shortening production time. SDLC achieves these apparently divergent goals by following a plan that removes the typical pitfalls to software development projects. That plan starts by evaluating existing systems for deficiencies. Next, it defines the requirements of the new system. It then creates the software through the stages of design, development, testing, and deployment. By anticipating costly mistakes like failing to ask the end user for suggestions, SLDC can eliminate redundant rework and after-the-fact fixes.
+- The Agile SDLC model separates the product into cycles and delivers a working product very quickly. This methodology produces a succession of releases. Testing of each release feeds back info that’s incorporated into the next version. According to Robert Half, the drawback of this model is that the heavy emphasis on customer interaction can lead the project in the wrong direction in some cases.
+
+
 Sources: https://www.cprime.com/resources/what-is-agile-what-is-scrum/, https://www.atlassian.com/agile/scrum

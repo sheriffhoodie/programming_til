@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Space Chopper</title>
+    <link rel="stylesheet" type="text/css" href="assets/styles/chopper.css">
+    <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png"/>
+  </head>
+  <body>
+    <div class="hidden">
+	<script type="text/javascript">
+		<!--//--><![CDATA[//><!--
+
+			if (document.images) {
+				obstac1 = new Image();
+				obstac2 = new Image();
+				obstac3 = new Image();
+
+				obstac1.src = "./assets/images/asteroid2.png";
+				obstac2.src = "./assets/images/spaceship2.png";
+				obstac3.src = "./assets/images/asteroid3.png";
+			}
+
+		//--><!]]>
+	</script>
+</div>
+    <div class="header-div">
+      <header>
+        <div class="header-left">
+          <h2>Max Currier</h2>
+        </div>
+        <div class="header-right">
+          <a href="http://maxcurrier.me" target="_blank">Website</a>
+          <a href="https://github.com/sheriffhoodie" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/maxwell-currier-a7769263/" target="_blank">Linkedin</a>
+        </div>
+      </header>
+    </div>
+    <div class="main-body">
+      <p class="instructions"></p>
+      <div class="body">
+        <div class="main">
+          <h1 class="game-title">SPACE CHOPPER</h1>
+          <label for="">Sounds</label></br>
+            <button id="mute-button" type="button" name="mute">Mute / Unmute</button>
+        </br>
+          <canvas id="canvas" width="1170" height="500">
+            Your browser does not support HTML Canvas. Please update and try again.
+          </canvas>
+        </div>
+      </div>
+    </div>
+    <script src="./bundle.js"></script>
+  </body>
+</html>
