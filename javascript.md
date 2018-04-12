@@ -12,6 +12,44 @@ setTimeout(function(){
 console.log(3);
 // Outputs: 1, 3, 2
 ```
+### Convert string character to its ASCII value:
+JS: string.charCodeAt(idx) or string.fromCharCode(code)
+Ruby: String#ord or String#sum will sum all ASCII values
+
+### String.trim()
+removes whitespace from both ends of the string
+
+### Array.filter()
+creates a new array with all elements that pass the test implemented by the provided function, similar to Ruby’s ‘select’ method
+Ex.
+```javascript
+var words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+const result = words.filter(word => word.length > 6);
+```
+### Array.every(function)
+tests whether all elements in the array pass the test implemented by the provided function
+
+### Array.some(function)
+tests whether at least one element in the array passes the test implemented by the provided function
+
+### Deep Flattening a nested array:
+```JavaScript
+var array = [1, 2, 3, [4, 5, [6, []]]];
+function deepFlatten(array) {
+  let result = [];
+  var el;
+  while (array.length > 0) {
+    el = array.shift();
+    if (Array.isArray(el)) {
+      array = el.concat(array);
+    } else {
+      result.push(el);
+    }
+  }
+  return result;
+}
+```
+
 
 
 ## General Topics
@@ -23,6 +61,25 @@ console.log(3);
 - if there was no declaration, a ReferenceError would be thrown
 - play it safe and define variables at top of scopes
 - function declarations are usually safe and will be hoisted
+
+### Closures
+- a combination of a function, usually defined inside or returned by another function, and the use of variables defined in an outer scope (aka lexical environment). This environment consists of any local variables that were in-scope at the time the closure was created.
+- useful because they let you associate data from a lexical environment with a function that operates on that data, which is useful in OOP where objects’ properties can be used in multiple methods
+- used for creating semi-“private” variables, and for callbacks such as in AJAX
+Examples:
+```javascript
+function makeAdder(x) {
+  return function(y) {
+    return x + y;
+  };
+}
+
+var add5 = makeAdder(5);
+var add10 = makeAdder(10);
+
+console.log(add5(2));  // 7
+console.log(add10(2)); // 12
+```
 
 ### Refs
 - refs are used to get a reference to a DOM node or instance of a React component

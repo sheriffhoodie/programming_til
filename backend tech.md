@@ -1,3 +1,9 @@
+### Yarn vs. NPM vs. Babel vs. Webpack:
+- NPM and Yarn are both are package managers, Yarn is faster because it installs packages in parallel, while NPM installs sequentially. Yarn also updates and creates its yarn.lock file automatically during installation
+- Babel is a JS transpiler - it converts new JS syntax to older versions to ensure cross-browser compatibility
+- Webpack is a modular build tool that has two sets of functionality — Loaders and Plugins. Loaders transform the source code of a module. For example, style-loader adds CSS to DOM using style tags. sass-loader compiles SASS files to CSS. babel-loader transpiles JS code given the presets. Plugins are the core of Webpack. They can do things that loaders can’t. For example, there is a plugin called UglifyJS that minifies and uglifies the output of webpack.
+- Uglify is a JavaScript library that minifies JS files: it compresses the file size by removing all the spaces and new lines- which makes the code unreadable hence ugly. Uglify also joins sentences using comma, changes property access to dot notation (to reduce number of characters), removes dead code and removes console logs. it also simplifies conditional statements (if), Boolean operations, constants, function declarations etc.
+
 ## SQL vs. MySQL vs. NoSQL
 
 ### NoSQL advantages and disadvantages:

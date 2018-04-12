@@ -64,8 +64,28 @@ Using a Content Delivery Network (CDN) optimizes the delivery of static assets o
 - add database indices to optimize common queries
 - monitor event listeners to weed out any zombies
 
+### Strategies to speed up Webpack build times and minimize Webpack builds
+
+- Use packages that allows webpack to parallelize the build, i.e. spread out the work to multiple processors. Examples include “parallel-webpack”, “happypack” and the parallel option on UglifyJS plugin.
+- Also in the Uglify plugin, can speed up minification by 3-4 times by disabling the compression (whitespace removal and symbol mangling)
+- Skip parsing: You can tell web pack to skip certain files or sets of files in its JS file parsing process if you’re certain those files don’t use any dependencies
+- More exclusions: You can also exclude files from loaders and other plugins such as tools like transpires and minifiers that also rely on syntax trees - it is common to skip minification for non-customer facing code.
+- Sharing Code: To avoid having duplicate code in different bundles, can find duplicates with web pack Bundle Analyzer and Bundle Buddy and then split them out into shared chunks with web pack’s CommonsChunkPlugin.
+- Create a manifest chunk: First start with a digest, a simple map of module IDs to hashes that repack will use to resolve a filename when importing modules asynchronously. Then, you need to extract this module digest into a spearte file entirely so that the boilerplate code at the top of each bundle doesn’t have to be updated. This is where you can create a CommonsChunk plugin, which greatly reduced the frequency of rebuilds and allows you to ship only a single copy of webpack’s boilerplate code.
+- Research lighter, cheaper source map options.
+- Remember to clear your cache whenever package dependencies change - something you can automate with an npm post install script
+
+### Difference between SASS, LESS, and CSS?
+Syntactically Awesome Stylesheets (Sass) and Leaner CSS (LESS) are both CSS preprocessors. They are special stylesheet extensions that make designing easier and more efficient. Both Sass and LESS compile into CSS stylesheets so that browsers can read them, which is a necessary step because modern browsers cannot read .sass or .less file types. When it comes down to it, both are similar. They make writing CSS simpler, more object-oriented, and a more enjoyable experience.
+Differences:
+- Sass is in Ruby, Less is in JavaScript
+- Less has more accurate error messages
+- Sass’s extension Compass for mixins (ability to store and share CSS declarations across a website) is better
+- Sass uses $ for variable assignment, Less uses @
+
 Sources:
 https://devcenter.heroku.com/articles/using-amazon-cloudfront-cdn,
 https://www.cloudflare.com/learning/cdn/what-is-a-cdn/,
 https://www.crazyegg.com/blog/speed-up-your-website/,
-http://igoro.com/archive/what-really-happens-when-you-navigate-to-a-url/comment-page-3/
+http://igoro.com/archive/what-really-happens-when-you-navigate-to-a-url/comment-page-3/,
+https://www.thebalance.com/sass-vs-less-2071912
