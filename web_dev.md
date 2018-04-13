@@ -35,7 +35,7 @@ Assortment of topics specific to web development.
 - Static content often represents the bulk of the bandwidth of a site, and can be easily replicated across a CDN. Often, sites will use a third-party CDN provider, instead of operating a CDN themselves. For example, Facebook’s static files are hosted by Akamai, the largest CDN provider.
 - The browser continues to make AJAX requests in the background as needed
 
-### CDN
+### CDNs
 Using a Content Delivery Network (CDN) optimizes the delivery of static assets on your site. This allows us to offload all requests for these static assets off of your web dynos, which in turn will free those dynos to handle more requests for dynamic content.
 - Benefits:
   - Improving website load times - By distributing content closer to website visitors by using a nearby CDN server (among other optimizations), visitors experience faster page loading times. As visitors are more inclined to click away from a slow-loading site, a CDN can reduce bounce rates and increase the amount of time that people spend on the site. In other words, a faster a website means more visitors will stay and stick around longer.

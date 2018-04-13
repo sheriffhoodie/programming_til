@@ -1,6 +1,6 @@
 A collection of various topics related to JavaScript.
 
-## Functions (Built-in)
+## Functions
 
 ### setTimeout
 setTimeout is asynchronous, in that it queues the function reference it receives to run once the current call stack has finished executing. It doesn’t however, execute concurrently, or on a separate thread (due to JavaScript’s single-threaded nature). In simple terms, it defers the execution of its code until after the rest of the call stack is completed. The amount of time provided to a setTimeout, e.g. 1000ms, is only the minimum amount of time the function will wait to execute, not the exact amount.
@@ -49,8 +49,6 @@ function deepFlatten(array) {
   return result;
 }
 ```
-
-
 
 ## General Topics
 

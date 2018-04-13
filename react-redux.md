@@ -18,7 +18,7 @@
 - Coding gets complex as it uses inline templating and JSX
 
 ### What is JSX?
-JSX is a shorthand for JavaScript XML. This is a type of file used by React which utilizes the expressiveness of JavaScript along with HTML like template syntax. This makes the HTML file really easy to understand. This file makes applications robust and boosts its performance. Browsers can only read JavaScript objects but JSX in not a regular JavaScript object. Thus to enable a browser to read JSX, first, we need to transform JSX file into a JavaScript object using JSX transformers like Babel and then pass it to the browser.
+JSX is a shorthand for JavaScript XML. This is a type of file used by React which utilizes the expressiveness of JavaScript along with HTML-like template syntax. This makes the HTML file really easy to understand. This file makes applications robust and boosts its performance. However, browsers can only read JavaScript objects and JSX is not a regular JavaScript object. Thus to enable a browser to read JSX, first, we need to transform JSX file into a JavaScript object using JSX transformers like Babel and then pass it to the browser.
 
 ### How do you implement highly performant React components?
 - First, measure where the wasted time is - use tools like react-addons-perf to get an overview of your app’s overall performance or react-perf-tool which creates graphs of measured performance for your components.
