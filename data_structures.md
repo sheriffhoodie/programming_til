@@ -110,5 +110,55 @@ DFS (Depth First Search):
 - often preferred if we want to visit every node in the graph
 - see notes for algorithm
 
+## Linked Lists
+
+### Singly-Linked List
+A singly-linked list is a data structure that holds a sequence of linked nodes. Each node, in turn, contains data and a pointer, which can point to another node. Since a singly-linked list contains nodes, which can be a separate constructor from a singly-linked list, we outline the operations of both constructors: Node and SinglyList. 
+- class Node
+  - data stores a value.
+  - next points to the next node in the list.
+- SinglyList
+  - length retrieves the number of nodes in a list.
+  - head assigns a node as the head of a list.
+  - add(value) adds a node to a list.
+  - searchNodeAt(position) searches for a node at n-position in our list.
+  - remove(position) removes a node from a list.
+
+Implementation of a Singly-Linked List  
+- first define a constructor named Node and then a constructor named SinglyList
+- each instance of Node needs a 'data' attribute to store data and a 'next' attribute to point to another node
+```javascript
+class Node() {
+  function appendToTail() {
+    let n = this;
+    let end = new Node()
+    while (n.next !== null) {
+      n = n.next
+    }
+    n.next = end;
+  }
+
+  function deleteNode(data) {
+    let n = headNode;
+    if (n.data === data) {
+      head = head.next;
+    }
+    while (n.next !== null) {
+      if (n.next.data == data) {
+        n.next = n.next.next
+      }
+      n = n.next;
+    }
+  }
+}
+```
+
+### Doubly-Linked Lists
+- similar to single linked lists but are bi-directional, meaning each Node also has a “previous” property that refers to the previous node in the line. The linked list constructor also has a “tail” property that assigns a node as the tail of the list. At initiation it is null, like the head property.
+
+### The "Runner Technique"
+The runner technique is a common linked list method that uses a second pointer to iterate through the linked list with two pointers simultaneously, with one ahead of the other. The "fast" node might be ahead by a fixed amount or it might be hopping multiple nodes for each node that the "slow" node iterates through. For example, to find the length or midpoint of a linked list, you could have one pointer p1 (the fast one) move two elements for every one that p2 (slow pointer) makes. Thus, when p1 hits the end of the linked list, p2 will be at the midpoint.
+
+
 Sources:
-Cracking The Coding Interview, 6th Edition, by Gayle McDowell https://github.com/duereg/js-algorithms/blob/master/lib/algorithms/4-searching/depthFirstSearch.js
+Cracking The Coding Interview, 6th Edition, by Gayle McDowell, https://github.com/duereg/js-algorithms/blob/master/lib/algorithms/4-searching/depthFirstSearch.js
