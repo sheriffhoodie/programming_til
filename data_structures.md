@@ -154,9 +154,10 @@ class Node() {
 ```
 
 ### Doubly-Linked Lists
-- similar to single linked lists but are bi-directional, meaning each Node also has a “previous” property that refers to the previous node in the line. The linked list constructor also has a “tail” property that assigns a node as the tail of the list. At initiation it is null, like the head property.
+- similar to single linked lists but are bi-directional, meaning each node also has a “previous” property that refers to the previous node in the line.
+- the linked list constructor also has a “tail” property that assigns a node as the tail of the list, at initiation it is null, like the head property.
 
-### The "Runner Technique"
+### The "Runner" Technique
 The runner technique is a common linked list method that uses a second pointer to iterate through the linked list with two pointers simultaneously, with one ahead of the other. The "fast" node might be ahead by a fixed amount or it might be hopping multiple nodes for each node that the "slow" node iterates through. For example, to find the length or midpoint of a linked list, you could have one pointer p1 (the fast one) move two elements for every one that p2 (slow pointer) makes. Thus, when p1 hits the end of the linked list, p2 will be at the midpoint.
 
 
