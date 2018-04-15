@@ -160,6 +160,38 @@ class Node() {
 ### The "Runner" Technique
 The runner technique is a common linked list method that uses a second pointer to iterate through the linked list with two pointers simultaneously, with one ahead of the other. The "fast" node might be ahead by a fixed amount or it might be hopping multiple nodes for each node that the "slow" node iterates through. For example, to find the length or midpoint of a linked list, you could have one pointer p1 (the fast one) move two elements for every one that p2 (slow pointer) makes. Thus, when p1 hits the end of the linked list, p2 will be at the midpoint.
 
+## Hash Table
+
+A hash table is a data structure that is used to store key/value pairs. It uses a hash function to compute an index into an array in which an element will be inserted or searched. By using a good hash function, hashing can work well. Under reasonable assumptions, the average time required to search for an element in a hash table is O(1).
+
+- Option 1: In case of collision (two or more items sorted into the same index in the table), can use separate chaining / linked lists. Separate chaining is one of the most commonly used collision resolution techniques. It is usually implemented using linked lists. In separate chaining, each element of the hash table is a linked list. To store an element in the hash table you must insert it into a specific linked list. If there is any collision (i.e. two different elements have same hash value) then store both the elements in the same linked list. The cost of a lookup is that of scanning the entries of the selected linked list for the required key. If the distribution of the keys is sufficiently uniform, then the average cost of a lookup depends only on the average number of keys per linked list. For this reason, chained hash tables remain effective even when the number of table entries (N) is much higher than the number of slots.
+For separate chaining, the worst-case scenario is when all the entries are inserted into the same linked list. The lookup procedure may have to scan all its entries, so the worst-case cost is proportional to the number (N) of entries in the table.
+
+- Option 2: Open addressing / Linear Probing - In open addressing, instead of in linked lists, all entry records are stored in the array itself. When a new entry has to be inserted, the hash index of the hashed value is computed and then the array is examined (starting with the hashed index). If the slot at the hashed index is unoccupied, then the entry record is inserted in slot at the hashed index else it proceeds in some probe sequence until it finds an unoccupied slot.
+The probe sequence is the sequence that is followed while traversing through entries. In different probe sequences, you can have different intervals between successive entry slots or probes. When searching for an entry, the array is scanned in the same sequence until either the target element is found or an unused slot is found. This indicates that there is no such key in the table. The name "open addressing" refers to the fact that the location or address of the item is not determined by its hash value. Linear probing is when the interval between successive probes is fixed (usually to 1). Let’s assume that the hashed index for a particular entry is index. The probing sequence for linear probing will be:
+index = index % hashTableSize
+index = (index + 1) % hashTableSize
+index = (index + 2) % hashTableSize
+index = (index + 3) % hashTableSize
+- Option 3: Double Hashing
+
+## Heaps
+
+A heap, simply put, is an ordered binary tree. It can be implemented as either a (binary) tree or an array.
+- in the binary tree implementation, a max heap has the largest value as the root, meaning every parent node is greater than its children nodes
+- for a min heap, the smallest value is at the root, meaning every parent node has a smaller value than its children nodes
+- to add an item to the heap, it needs to be added at the left-most value. then in a loop, the new node’s value will be checked against its parent’s value. if the node is bigger than its parent (in a max heap), the two nodes are switched. this comparison-switch occurs up the tree until the condition is satisfied
+- when removing an item (usually the root node), root is removed, a comparison between the children is made to determine which should be the root and that node is made the root. this process then continues down the tree for the children nodes until all the spaces are filled
+to implement a heap as an array, the nodes are assigned top to bottom, left to right to array indices (so the root is index 0). the formula for finding the children of any given node is parentIndex * 2 + 1 and parentIndex * 2 + 2. Conversely, can find a parent’s index from the child by computing Math.floor(childIndex - 1 / 2)
+- function build-max-heap builds a max heap from an unsorted array
+- function heapify also builds a max heap but assumes part of array is sorted
+
+### Heap Sort Basics
+- unsorted array has build-max-heap called on it. max (root) is swapped with last element in the array and in the tree and is then removed from the tree
+- heapify is then called on the partly sorted tree to make it a heap again.
+- repeat steps where max root is swapped to end of array and then removed from tree
+- this continues until array is fully sorted
+
 
 Sources:
 Cracking The Coding Interview, 6th Edition, by Gayle McDowell, https://github.com/duereg/js-algorithms/blob/master/lib/algorithms/4-searching/depthFirstSearch.js
