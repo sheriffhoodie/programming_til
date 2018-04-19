@@ -1,3 +1,5 @@
+# Algorithms
+
 These are basic implementations of some popular sorting, traversal and conceptual algorithms. Some of the examples are implemented in multiple ways and/or programming languages.
 
 ## Merge Sort
@@ -97,6 +99,72 @@ function binarySearch (array, target) {
     const result = binarySearch(array.slice(mid + 1), target);
     return result === null ? result : mid + 1 + result;
   }
+}
+```
+
+## Tree Traversal - Breadth-First Search
+
+(See data_structures for description)
+
+```javascript
+//first write node object as a POJO like this:
+let node1 = {
+  data: 1,
+  left: "referenceToLeftNode",
+  right: "referenceToRightNode"
+};
+
+function breadthFirstSearch(rootNode) {
+  // Check that a root node exists.
+  if (rootNode === null) {
+    return;
+  }
+
+  // Create our queue and push our root node into it.
+  var queue = [];
+  queue.push(rootNode);
+
+  // Continue searching through as queue as long as it's not empty.
+  while (queue.length > 0) {
+    // Create a reference to currentNode, at the top of the queue.
+    var currentNode = queue[0];
+
+    // Print the data of the node. This simulates visiting / checking the node.
+    console.log(currentNode.data);
+
+    // If currentNode has a left child node, add it to the queue.
+    if (currentNode.left !== null) {
+      queue.push(currentNode.left);
+    }
+    // If currentNode has a right child node, add it to the queue.
+    if (currentNode.right !== null) {
+      queue.push(currentNode.right);
+    }
+    // Remove the currentNode from the queue.
+    queue.shift();
+  }
+
+  // Continue looping through the queue until it's empty!
+}
+```
+## Tree Traversal - Depth-First Search
+
+(See data_structures for description)
+
+```javascript
+function depthFirstSearch(node) {
+  // Check that a node exists.
+  if (node === null) {
+    return;
+  }
+
+  // Print the data of the node. This simulates visiting / checking the node.
+  console.log(node.data);
+
+  // Pass in a reference to the left child node to depthFirstSearch.
+  // Then, pass reference to the right child node to depthFirstSearch.
+  depthFirstSearch(node.left);
+  depthFirstSearch(node.right);
 }
 ```
 

@@ -102,13 +102,13 @@ BFS (Breadth First Search):
 - add/remove from queue (enqueue, dequeue) with shifting nodes from the front of the array and pushing new ones into the back, does not use recursion, works better iteratively
 - generally better for finding shortest path (or any path) between two nodes
 - has O(n) time and space complexity
-- see notes for algorithm
+- see algorithms for implementation
 
 DFS (Depth First Search):
 - uses a stack (LIFO) to track nodes
 - adding/removing nodes from end of stack uses pop and push, uses recursion
 - often preferred if we want to visit every node in the graph
-- see notes for algorithm
+- see algorithms for implementation
 
 ## Linked Lists
 
