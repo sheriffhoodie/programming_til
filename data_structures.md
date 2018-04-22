@@ -183,14 +183,15 @@ A heap, simply put, is an ordered binary tree. It can be implemented as either a
 - to add an item to the heap, it needs to be added at the left-most value. then in a loop, the new node’s value will be checked against its parent’s value. if the node is bigger than its parent (in a max heap), the two nodes are switched. this comparison-switch occurs up the tree until the condition is satisfied
 - when removing an item (usually the root node), root is removed, a comparison between the children is made to determine which should be the root and that node is made the root. this process then continues down the tree for the children nodes until all the spaces are filled
 to implement a heap as an array, the nodes are assigned top to bottom, left to right to array indices (so the root is index 0). the formula for finding the children of any given node is parentIndex * 2 + 1 and parentIndex * 2 + 2. Conversely, can find a parent’s index from the child by computing Math.floor(childIndex - 1 / 2)
+
+### High-Level Overview of Implementation
 - function build-max-heap builds a max heap from an unsorted array
 - function heapify also builds a max heap but assumes part of array is sorted
-
-### Heap Sort Basics
 - unsorted array has build-max-heap called on it. max (root) is swapped with last element in the array and in the tree and is then removed from the tree
 - heapify is then called on the partly sorted tree to make it a heap again.
 - repeat steps where max root is swapped to end of array and then removed from tree
 - this continues until array is fully sorted
+- see algorithms for full implementation of heap sort
 
 
 Sources:

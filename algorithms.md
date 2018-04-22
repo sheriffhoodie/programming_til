@@ -102,6 +102,135 @@ function binarySearch (array, target) {
 }
 ```
 
+## Bubble Sort
+
+"Bubble sort, sometimes referred to as sinking sort, is a simple sorting algorithm that repeatedly steps through the list to be sorted, compares each pair of adjacent items and swaps them if they are in the wrong order. The pass through the list is repeated until no swaps are needed, which indicates that the list is sorted. The algorithm, which is a comparison sort, is named for the way smaller or larger elements "bubble" to the top of the list. Bubble sort can be practical if the input is in mostly sorted order with some out-of-order elements nearly in position." - adapted from Wikipedia.
+
+Bubble Sort runs in O(n^2) time but has O(1) space complexity.
+
+```javascript
+function bubbleSort(array, func) {
+  let sorted = false;
+
+  if (!func) {
+    func = (x, y) => {
+      if (x <= y) return -1;
+      return 1;
+    };
+  }
+
+  while (!sorted) {
+    sorted = true;
+    for (let i = 0; i < array.length; i++) {
+      if (i + 1 === array.length) continue;
+
+      if (func(array[i], array[i + 1]) === 1) {
+        sorted = false;
+        let current = array[i], next = array[i + 1];
+        array[i] = next, array[i + 1] = current;
+      }
+    }
+  }
+
+  return array;
+};
+```
+
+## Heap Sort
+
+Heap Sort is a comparison-based sorting algorithm; it divides its input into a sorted and an unsorted region, and it interactively shrinks the unsorted region by extracting the largest element and moving that to the sorted region. The improvement consists of the use of a heap data structure rather than a linear-time search to find the maximum. It runs in worst-case O(n log n) runtime and runs in-place (O(1) space complexity).
+
+```JavaScript
+let arrayLength;
+/* to create MAX  array */  
+function heapify(input, i) {
+  let left = 2 * i + 1;
+  let right = 2 * i + 2;
+  let max = i;
+
+  if (left < arrayLength && input[left] > input[max]) {
+      max = left;
+  }
+
+  if (right < arrayLength && input[right] > input[max])     {
+      max = right;
+  }
+
+  if (max != i) {
+      swap(input, i, max);
+      heapify(input, max);
+  }
+}
+
+function swap(input, idxA, idxB) {
+  let temp = input[idxA];
+
+  input[idxA] = input[idxB];
+  input[idxB] = temp;
+}
+
+function heapSort(input) {
+
+  arrayLength = input.length;
+
+  for (let i = Math.floor(arrayLength / 2); i >= 0; i -= 1)      {
+      heapify(input, i);
+    }
+
+  for (i = input.length - 1; i > 0; i--) {
+      swap(input, 0, i);
+      arrayLength--;
+
+
+      heapify(input, 0);
+  }
+}
+```
+
+## Fibonacci Sequence and Sum
+
+From Wikipedia: By definition, the first two numbers in the Fibonacci sequence are either 1 and 1, or 0 and 1, depending on the chosen starting point of the sequence, and each subsequent number is the sum of the previous two.
+
+### Iterative Sum
+- runs in O(n) time and O(1) space complexity
+
+```javascript
+function fibIter(n) {
+    let a = 0, b = 1, temp;
+    for(let i = 2; i <= n; i++) {
+        f = a + b;
+        a = b;
+        b = f;
+    }
+    return f;
+};
+```
+
+### Recursive Sum
+- runs in O(2^n) time (exponential) and O(n) space
+
+```javascript
+function fibRec(num) {
+  if (num <= 1) return 1;
+
+  return fibRec(num - 1) + fibRec(num - 2);
+}
+```
+
+### Recursive Sum w/ Memoization
+- runs in O(2n) => O(n) time with O(n) space
+
+```javascript
+function fibMemo(num, memo) {
+  memo = memo || {};
+
+  if (memo[num]) return memo[num];
+  if (num <= 1) return 1;
+
+  return memo[num] = fibMemo(num - 1, memo) + fibMemo(num - 2, memo);
+}
+```
+
 ## Tree Traversal - Breadth-First Search
 
 (See data_structures for description)
@@ -121,13 +250,13 @@ function breadthFirstSearch(rootNode) {
   }
 
   // Create our queue and push our root node into it.
-  var queue = [];
+  let queue = [];
   queue.push(rootNode);
 
   // Continue searching through as queue as long as it's not empty.
   while (queue.length > 0) {
     // Create a reference to currentNode, at the top of the queue.
-    var currentNode = queue[0];
+    let currentNode = queue[0];
 
     // Print the data of the node. This simulates visiting / checking the node.
     console.log(currentNode.data);
@@ -170,4 +299,4 @@ function depthFirstSearch(node) {
 
 
 Sources:
-http://interactivepython.org/runestone/static/pythonds/SortSearch/TheMergeSort.html, https://www.geeksforgeeks.org/quick-sort/, https://en.wikipedia.org/wiki/Binary_search_algorithm,
+http://interactivepython.org/runestone/static/pythonds/SortSearch/TheMergeSort.html, https://www.geeksforgeeks.org/quick-sort/, https://en.wikipedia.org/wiki/Binary_search_algorithm, https://en.wikipedia.org/wiki/Bubble_sort, https://www.w3resource.com/javascript-exercises/searching-and-sorting-algorithm/searching-and-sorting-algorithm-exercise-3.php,https://medium.com/developers-writing/fibonacci-sequence-algorithm-in-javascript-b253dc7e320e, https://www.thepolyglotdeveloper.com/2015/01/fibonacci-sequence-printed-javascript/
