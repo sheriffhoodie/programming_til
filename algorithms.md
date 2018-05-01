@@ -71,7 +71,7 @@ function quickSort (array, func) {
 
   const pivot = array[0];
   let left = array.slice(1).filter( (el) => func(el, pivot) === -1);
-  let right = array.slice(1).filter( (el) => func(el, pivot) != -1);
+  let right = array.slice(1).filter( (el) => func(el, pivot) !== -1);
   left = quickSort(left, func);
   right = quickSort(right, func);
 
