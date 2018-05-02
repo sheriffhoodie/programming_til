@@ -297,6 +297,24 @@ function depthFirstSearch(node) {
 }
 ```
 
+## Dijkstra's Algorithm
+
+Dijkstra's Algorithm is a shortest path algorithm that is run on a weighted graph. It starts with an initial node and a goal node and finds the least cost/distance path to that goal node.
+
+### Details
+
+- Assigns to every node a tentative distance value; initial node i set to zero and all other nodes are set to infinity
+- Creates a set of visited nodes initialized with just the initial node
+- For the current node, the sum of its distance to each of its unvisited neighbors and its own pre-calculated value is calculated. If this value is less than the current tentative distance, it replaces it as the new value
+- Once all of the current node's neighbors have been checked, the current node is marked as visited and it is removed from the unvisited set
+- if the goal node has been marked visited, the algorithm has finished
+
+Time Complexity:
+- if using a min binary heap: O((e + v) * log v)
+Space Complexity:
+- if using a min binary heap: O(v)
+(where e is the number of edges and v is the number of vertices)
 
 Sources:
-http://interactivepython.org/runestone/static/pythonds/SortSearch/TheMergeSort.html, https://www.geeksforgeeks.org/quick-sort/, https://en.wikipedia.org/wiki/Binary_search_algorithm, https://en.wikipedia.org/wiki/Bubble_sort, https://www.w3resource.com/javascript-exercises/searching-and-sorting-algorithm/searching-and-sorting-algorithm-exercise-3.php,https://medium.com/developers-writing/fibonacci-sequence-algorithm-in-javascript-b253dc7e320e, https://www.thepolyglotdeveloper.com/2015/01/fibonacci-sequence-printed-javascript/
+http://interactivepython.org/runestone/static/pythonds/SortSearch/TheMergeSort.html, https://www.geeksforgeeks.org/quick-sort/, https://en.wikipedia.org/wiki/Binary_search_algorithm, https://en.wikipedia.org/wiki/Bubble_sort, https://www.w3resource.com/javascript-exercises/searching-and-sorting-algorithm/searching-and-sorting-algorithm-exercise-3.php,https://medium.com/developers-writing/fibonacci-sequence-algorithm-in-javascript-b253dc7e320e, https://www.thepolyglotdeveloper.com/2015/01/fibonacci-sequence-printed-javascript/,
+https://www.youtube.com/watch?v=gdmfOwyQlcI
